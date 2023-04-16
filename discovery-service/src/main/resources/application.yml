@@ -1,0 +1,12 @@
+server:
+  port: 8080
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+# off - since I use only one instance
+logging:
+  level:
+    com:
+      netflix: OFF
