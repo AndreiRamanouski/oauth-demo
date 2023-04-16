@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.appsdeveloperblog.ws.api</groupId>
-    <artifactId>ResourceServer</artifactId>
+    <artifactId>oauth-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ResourceServer</name>
-    <description>ResourceServer</description>
+    <description>oauth-demo</description>
     <properties>
         <java.version>11</java.version>
     </properties>
