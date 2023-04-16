@@ -2,6 +2,7 @@ server:
   port: 8081
 
 
+
 spring:
   security:
     oauth2:
@@ -10,3 +11,9 @@ spring:
 #          these 2 can be used interchangeably
 #          issuer-uri: http://192.168.1.47:8080/auth/realms/appsdeveloperblog
           jwk-set-uri: http://192.168.100.12:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/certs
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
+
