@@ -1,10 +1,10 @@
-package com.appsdeveloperblog.ws.api.resourceserver;
+package com.example.oauthintro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ResourceServerApplicationTests {
+class OauthIntroApplicationTests {
 
     @Test
     void contextLoads() {

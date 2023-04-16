@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.ws.api.resourceserver;
+package com.example.oauthintro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
