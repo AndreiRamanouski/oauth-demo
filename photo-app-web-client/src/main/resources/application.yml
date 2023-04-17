@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          mywebclient:
+            client-id: photo-app-code-flow-client
+            client-secret: IqLogcnKe4jT2WgiVJXA1Ug4C6pQaept
+            scope:
+              - openid
+              - profile
+              - roles
+            authorization-grant-type: authorization_code
+            redirect-uri: http://192.168.100.32:8888/login/oauth2/code/mywebclient
+
+        provider:
+          mywebclient:
+            authorization-uri: http://192.168.100.12:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/auth
+            token-uri: http://192.168.100.12:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/token
+            jwk-set-uri: http://192.168.100.12:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/certs
+            user-info-uri: http://192.168.100.12:8080/auth/realms/appsdeveloperblog/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+  application:
+    name: albums-web-client
