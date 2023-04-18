@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+  security:
+    oauth2:
+      client:
+#        registration:
+          #Authorized redirect URIs
+          #http://localhost:8080/login/oauth2/code/google
+          #          google:
+          #            client-id: changeme
+          #            client-secret: changeme
+          #          facebook:
+          #            client-id:
+          #            client-secret:
+          #          github:
+          #            client-id:
+          #            client-secret:
+#          okta:
+#            client-id: 0oa95vboj712Y74xW5d7
+#            client-secret: ZvWdD7lR8GEyodHgyTR97GVefyx5gkD4Z7abde9z
+#            scope: openid,profile
+#        provider:
+#          okta:
+#            issuer-uri: https://dev-08386158.okta.com/oauth2/default
+
+
+
+
+
+  application:
+    name: albums-web-client
