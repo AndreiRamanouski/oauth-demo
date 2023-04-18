@@ -20,8 +20,8 @@ spring:
           #            client-id:
           #            client-secret:
 #          okta:
-#            client-id: 0oa95vboj712Y74xW5d7
-#            client-secret: ZvWdD7lR8GEyodHgyTR97GVefyx5gkD4Z7abde9z
+#            client-id: changeme
+#            client-secret: changeme
 #            scope: openid,profile
 #        provider:
 #          okta:
