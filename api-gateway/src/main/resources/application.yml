@@ -3,6 +3,21 @@ server:
 spring:
   cloud:
     gateway:
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+#            allow all
+#            allowedOrigins: "*"
+            allowedOrigins: "http://localhost:8081"
+#            allow all
+#            allowedMethods: "*"
+            allowedMethods:
+              - GET
+              - POST
+            allowed-headers: "*"
+        add-to-simple-url-handler-mapping: true
+
       routes:
         - id: users-status-check
 #          uri: http://localhost:8081
