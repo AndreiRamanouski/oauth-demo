@@ -23,7 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsersController {
 
     @GetMapping("status/check")
-    public String status() {
+    public String status(@AuthenticationPrincipal Jwt jwt) {
+
+        log.info("User Id {}", jwt.getSubject());
+        log.info("Claims {}", jwt.getClaims());
         log.info("Get status");
         return "Working...";
     }

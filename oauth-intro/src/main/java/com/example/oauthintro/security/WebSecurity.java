@@ -1,6 +1,7 @@
 package com.example.oauthintro.security;
 
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -9,6 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
 //to use @Secured @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -23,6 +27,7 @@ public class WebSecurity {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         return http
+                //.cors().and()
                 .authorizeRequests(auth -> {
                             auth.antMatchers("/users/status/check", "/token")
                                     //.hasAuthority("SCOPE_profile");
@@ -32,9 +37,7 @@ public class WebSecurity {
                         }
                 )
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .oauth2ResourceServer(auth -> {
-                    auth.jwt().jwtAuthenticationConverter(jwtAuthenticationConverter());
-                })
+                .oauth2ResourceServer(auth -> auth.jwt().jwtAuthenticationConverter(jwtAuthenticationConverter()))
                 .build();
     }
 
@@ -43,5 +46,17 @@ public class WebSecurity {
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(keycloakRoleConverter);
         return jwtAuthenticationConverter;
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(List.of("http://localhost:8081"));
+        corsConfiguration.setAllowedMethods(List.of("POST", "GET"));
+        corsConfiguration.setAllowedHeaders(List.of("*"));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
     }
 }
